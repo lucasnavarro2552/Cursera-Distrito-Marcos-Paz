@@ -1,44 +1,314 @@
 /* ====================================================
-   PORTAL DOCENTE MARCOS PAZ - HOJA DE ESTILOS
-   Estética Institucional / Educativa con Fondo de Biblioteca
+   PORTAL DOCENTE MARCOS PAZ - ESTILOS SIMPLES Y ROBUSTOS
    ==================================================== */
 
-:root {
-    /* Paleta Institucional Educativa */
-    --primary-color: #1e3a8a;       /* Azul Académico Profundo */
-    --primary-light: #2563eb;      /* Azul Educativo brillante */
-    --accent-color: #d97706;       /* Dorado / Madera de Biblioteca */
-    --accent-glow: #f59e0b;        /* Resplandor cálido */
-    --secondary-color: #0f766e;    /* Verde Docente / Pizarrón */
-    --danger-color: #dc2626;       /* Rojo Alerta */
-    
-    /* Fondos y Cristal (Glassmorphism) */
-    --card-bg: rgba(255, 255, 255, 0.93);
-    --header-bg: rgba(15, 23, 42, 0.88);
-    --input-bg: rgba(255, 255, 255, 0.95);
-    
-    /* Tipografía y Textos */
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --text-light: #f8fafc;
-
-    /* Bordes y Sombras */
-    --border-color: rgba(203, 213, 225, 0.8);
-    --border-accent: rgba(30, 58, 138, 0.2);
-    --radius-lg: 12px;
-    --radius-md: 8px;
-    --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-}
-
-/* Reset y Estilos Globales */
+/* Configuración General */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    /* Imagen de Fondo de Biblioteca con capa oscura traslúcida para legibilidad */
-    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)),
-                url('
+    background-color: #f0f4f8;
+    color: #1a202c;
+    line-height: 1.5;
+}
+
+/* 1. Encabezado / Navbar */
+.navbar {
+    background-color: #1e3a8a; /* Azul institucional */
+    color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 4px solid #d97706; /* Detalle dorado */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: #f59e0b;
+}
+
+.navbar h1 {
+    font-size: 1.4rem;
+}
+
+.navbar p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-status {
+    font-size: 0.85rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* 2. Contenedor Principal y Tarjetas */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h2, .card h3 {
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 3. Formulario de Búsqueda */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #334155;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 0.6rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* 4. Barra de Botones e Iluminación */
+.actions-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Botón Consultar */
+.btn-primary {
+    background-color: #1e3a8a;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.6); /* Efecto iluminación */
+}
+
+/* Botón Leer Todos */
+.btn-outline {
+    background-color: #ffffff;
+    border: 2px solid #0f766e;
+    color: #0f766e;
+}
+
+.btn-outline:hover {
+    background-color: #0f766e;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(15, 118, 110, 0.6); /* Efecto iluminación */
+}
+
+/* Botón Login Modal */
+.btn-secondary {
+    background-color: #ffffff;
+    color: #1e3a8a;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-secondary:hover {
+    background-color: #f1f5f9;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Botón Cerrar Sesión */
+.btn-danger {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* 5. Tabla de Datos */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    background-color: #e2e8f0;
+    color: #334155;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, 
+.data-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table th {
+    background-color: #f8fafc;
+    color: #475569;
+}
+
+.data-table tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* 6. Alertas / Mensajes */
+.message-box {
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.message-box.info {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-left: 4px solid #0284c7;
+}
+
+.message-box.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid #dc2626;
+}
+
+.message-box.success {
+    background-color: #dcfce7;
+    color: #166534;
+    border-left: 4px solid #16a34a;
+}
+
+/* 7. Modal de Login */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.close-btn:hover {
+    color: #dc2626;
+}
+
+/* Regla indispensable para ocultar elementos con JavaScript */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
