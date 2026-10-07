@@ -1,0 +1,112 @@
+/* style.css */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+}
+
+/* --- ESTILOS DEL HEADER (INDEX) --- */
+header {
+    background-color: #1a5276; /* Azul formal */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 { margin: 0; font-size: 1.5rem; }
+
+header button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- ESTILOS DEL CONTENIDO PRINCIPAL --- */
+main { padding: 2rem; }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    margin-bottom: 0.8rem;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-left: 5px solid #2980b9;
+}
+
+/* --- ESTILOS DEL LOGIN --- */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+input {
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    margin-top: 1.5rem;
+    background-color: #2980b9;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover { background-color: #1a5276; }
+
+.error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+}
