@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padrón Docente - Marcos Paz</title>
+    <!-- Hoja de Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CDN de Supabase JS v2 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <!-- Encabezado Principal -->
+    <header class="navbar">
+        <div class="logo-container">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+            <div>
+                <h1>Portal Docente Marcos Paz</h1>
+                <p>Sistema Único de Consulta Educativa del Distrito</p>
+            </div>
+        </div>
+        <div class="user-controls">
+            <span id="user-info" class="user-status"><i class="fa-solid fa-lock"></i> Modo Consulta (Público)</span>
+            <button id="btn-login-modal" class="btn btn-secondary">
+                <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+            </button>
+            <button id="btn-logout" class="btn btn-danger hidden">
+                <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Panel de Búsqueda y Filtros -->
+        <section class="card search-section">
+            <h2><i class="fa-solid fa-magnifying-glass"></i> Consultar Datos de Docentes</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="search-input">Buscar por DNI, Nombre o Apellido:</label>
+                    <input type="text" id="search-input" placeholder="Ej: 32123456 o Pérez...">
+                </div>
+                <div class="form-group">
+                    <label for="filter-escuela">Establecimiento Educativo:</label>
+                    <select id="filter-escuela">
+                        <option value="">Todas las instituciones</option>
+                        <option value="EP N° 1">EP N° 1</option>
+                        <option value="EES N° 1">EES N° 1</option>
+                        <option value="Jardín N° 901">Jardín N° 901</option>
+                        <option value="EEE N° 501">EEE N° 501</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="actions-bar">
+                <!-- Botón 1: Consultar Datos -->
+                <button id="btn-consultar" class="btn btn-primary">
+                    <i class="fa-solid fa-filter"></i> Consultar Datos
+                </button>
+                <!-- Botón 2: Leer Todos los Datos -->
+                <button id="btn-leer-todos" class="btn btn-outline">
+                    <i class="fa-solid fa-list-check"></i> Leer Todos los Datos
+                </button>
+            </div>
+        </section>
+
+        <!-- Caja de Notificaciones / Mensajes -->
+        <div id="status-message" class="message-box hidden"></div>
+
+        <!-- Tabla de Datos -->
+        <section class="card table-section">
+            <div class="table-header">
+                <h3><i class="fa-solid fa-address-book"></i> Personal Docente de Marcos Paz</h3>
+                <span id="record-count" class="badge">0 registros</span>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Apellido y Nombre</th>
+                            <th>Escuela / Jardín</th>
+                            <th>Cargo / Función</th>
+                            <th>Turno</th>
+                            <th>Contacto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="docentes-table-body">
+                        <tr>
+                            <td colspan="6" class="text-center">Presione <strong>"Leer Todos los Datos"</strong> o realice una consulta para cargar la información.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal de Ventana Flotante para Login -->
+    <div id="modal-login" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h2><i class="fa-solid fa-user-shield"></i> Acceso Seguro</h2>
+            <p>Ingrese sus credenciales registradas en Supabase para habilitar funciones protegidas.</p>
+            
+            <form id="form-login">
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico:</label>
+                    <input type="email" id="login-email" placeholder="docente@marcospaz.edu.ar" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fa-solid fa-key"></i> Ingresar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Archivos JavaScript en orden de dependencia -->
+    <script src="conexion.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
