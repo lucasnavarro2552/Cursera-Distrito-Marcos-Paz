@@ -4,7 +4,7 @@ const logoutBtn = document.getElementById('logout-btn');
 const teachersList = document.getElementById('teachers-list');
 const loadingText = document.getElementById('loading-text');
 
-// 1. Manejo del botón de Cerrar Sesión
+// 1. Manejo del botón Cerrar Sesión usando directamente el cliente de Supabase
 if (logoutBtn) {
   logoutBtn.addEventListener('click', async () => {
     await supabase.auth.signOut();
@@ -12,15 +12,15 @@ if (logoutBtn) {
   });
 }
 
-// 2. Función para obtener y listar los datos
+// 2. Traer y mostrar los datos de la base de datos
 async function fetchTeachers() {
   try {
-    // CAMBIA 'docentes' SI TU TABLA TIENE OTRO NOMBRE EN SUPABASE
+    // CAMBIA 'docentes' POR EL NOMBRE EXACTO DE TU TABLA EN SUPABASE SI ES DISTINTO
     const { data, error } = await supabase.from('docentes').select('*');
 
     if (error) {
-      console.error('Error de lectura en Supabase:', error);
-      if (loadingText) loadingText.textContent = 'Error al cargar los datos. Revisa los permisos RLS en Supabase.';
+      console.error('Error de Supabase:', error);
+      if (loadingText) loadingText.textContent = 'Error de permisos o tabla inexistente en Supabase.';
       return;
     }
 
@@ -29,24 +29,21 @@ async function fetchTeachers() {
       return;
     }
 
-    // Oculta el mensaje de carga
     if (loadingText) loadingText.style.display = 'none';
 
-    // Limpia y renderiza la lista
     if (teachersList) {
       teachersList.innerHTML = '';
       data.forEach((item) => {
         const li = document.createElement('li');
-        // Ajusta 'nombre' y 'especialidad' según los nombres de tus columnas
+        // Cambia 'nombre' o 'especialidad' si tus columnas se llaman diferente
         li.textContent = `${item.nombre || 'Sin nombre'} - ${item.especialidad || item.titulo || 'Profesional'}`;
         teachersList.appendChild(li);
       });
     }
   } catch (err) {
     console.error('Error inesperado:', err);
-    if (loadingText) loadingText.textContent = 'Error inesperado al conectar con el servidor.';
+    if (loadingText) loadingText.textContent = 'Error al procesar la lista.';
   }
 }
 
-// Ejecuta la consulta al cargar
 fetchTeachers();
