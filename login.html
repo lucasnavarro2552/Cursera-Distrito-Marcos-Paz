@@ -1,28 +1,35 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar - Profesionales Marcos Paz</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso al Sistema - Distrito Marcos Paz</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 1. Carga del SDK oficial de Supabase desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="login-body">
-    <div class="login-container">
-        <h2>Acceso al Sistema</h2>
-        <form id="login-form">
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" required>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" required>
+  <div class="login-container">
+    <h2>Acceso al Sistema</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required>
+      </div>
 
-            <button type="submit">Ingresar</button>
-            <p id="error-message" class="error"></p>
-        </form>
-    </div>
-    
-    <!-- Es crucial el type="module" para que los imports de JS funcionen -->
-    <script type="module" src="login.js"></script>
+      <button type="submit" class="btn-primary">Ingresar</button>
+      <p id="error-message" class="error-message"></p>
+    </form>
+  </div>
+
+  <!-- 2. Carga del script del login como módulo -->
+  <script type="module" src="./src/auth.js"></script>
 </body>
 </html>
