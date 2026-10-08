@@ -1,29 +1,36 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docentes y Profesionales - Marcos Paz</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directorio de Marcos Paz</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 1. Carga del SDK oficial de Supabase desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <header>
-        <h1>Directorio de Marcos Paz</h1>
-        <div class="user-info">
-            <span id="user-email"></span>
-            <button id="logout-btn">Cerrar Sesión</button>
-        </div>
-    </header>
 
-    <main>
-        <h2>Lista de Docentes y Profesionales registrados</h2>
-        <ul id="profesionales-list">
-            <li>Cargando datos desde Supabase...</li>
-        </ul>
-    </main>
+  <!-- Encabezado / Navbar -->
+  <header class="header">
+    <div class="header-container">
+      <h1>Directorio de Marcos Paz</h1>
+      <button id="logout-btn" class="btn-logout">Cerrar Sesión</button>
+    </div>
+  </header>
 
-    <!-- Script principal de tu app -->
-    <script type="module" src="src/main.js"></script>
+  <!-- Contenido principal -->
+  <main class="main-container">
+    <h2>Lista de Docentes y Profesionales registrados</h2>
+
+    <!-- Contenedor donde se cargarán los datos de Supabase -->
+    <div id="content-card" class="card">
+      <p id="loading-text">Cargando datos desde Supabase...</p>
+      <ul id="teachers-list" class="teachers-list"></ul>
+    </div>
+  </main>
+
+  <!-- 2. Carga del script principal como módulo ES6 -->
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
